@@ -15,7 +15,8 @@ Introduction
 
 1. clone this repo
 2. run npm install in terminal
-3. insert your login id, password and captha
-4. Wait to the see the fun
+3. run node sim.js
+4. insert your login id, password and captha
+5. Wait to the see the fun
 
 **Only for chrome users**
