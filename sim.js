@@ -1,16 +1,25 @@
 const puppeteer = require('puppeteer');
+const wifiName = require('wifi-name');
+ 
+
 
 (async () => {
   const browser = await puppeteer.launch({
     headless: false
   });
-  const page = await browser.newPage();
 
+  var name=await wifiName();
+  console.log(name);
+  var host='http://210.212.85.154/';
+  if(name==='JSS STUDENT'){
+    host='http://192.168.0.12/';
+  }
+  const page = await browser.newPage();
   // Open page.
-  await page.goto('http://192.168.0.12/isimjss/login');
+  await page.goto(host+'isimjss/login');
   await page.waitFor(3000);
   await page.waitForNavigation();
-  await page.goto('http://192.168.0.12/ISIMJSS/Student/FeedBack');
+  await page.goto(host+'ISIMJSS/Student/FeedBack');
   await page.click('#MCPH1_SCPH_gvFeedBackList_btnSelect_0');
   await page.waitFor(5000);
   let elements =await page.evaluate(() => {
